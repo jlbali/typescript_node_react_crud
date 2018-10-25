@@ -1,0 +1,31 @@
+{
+  "name": "typescript_node_react_crud",
+  "version": "1.0.0",
+  "description": "TypeScript CRUD skeleton",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlbali/typescript_node_react_crud.git"
+  },
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "react"
+  ],
+  "author": "Juan Lucas Bali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlbali/typescript_node_react_crud/issues"
+  },
+  "homepage": "https://github.com/jlbali/typescript_node_react_crud#readme",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.6",
+    "nodemon": "^1.18.4"
+  }
+}
