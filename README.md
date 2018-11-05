@@ -37,9 +37,10 @@ Next steps:
 simultaneously in the backend and the frontend so as to be adding all the CRUD functionality (ie, update, delete, create, etc).
 
 Problems:
-- query to get all Todos is not working, maybe is not pointing to the correct database definition file, or maybe instead there is some step needed to actually create the table. Maybe some population is needed?? SEEMS FIXED!
+- query to get all Todos is not working, maybe is not pointing to the correct database definition file, or maybe instead there is some step needed to actually create the table. Maybe some population is needed?? 
+SEEMS FIXED!
 
 - No elements are being shown when querying for the Todos, maybe they are not being saved. It does not seem they are being saved, when accessing the file.
-
+FIXED!!
 
 

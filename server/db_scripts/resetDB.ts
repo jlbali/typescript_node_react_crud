@@ -6,23 +6,25 @@ import * as ToDoService from "../services/todo.service";
 import config from "../config";
 
 
-//const db = new sqlite.Database('todoapp.db');
-const db = new sqlite.Database(config.db_location);
-
-
-ToDoModel.sync({force: true});
-
-
-async function populate(){
+async function reset(){
+  const db = await new sqlite.Database(config.db_location);
+  console.log("Database creation");
+  await ToDoModel.sync({force: true});
+  console.log("Sync ToDo....");
   var todo = {
     title: "Starting up...",
     description: "Completion Data... "
   };
   await ToDoService.create(todo);
+  console.log("ToDo element added...");
 }
 
 
-populate();
+var process = reset();
+
+process.then(function(){
+  console.log("Process complete!");
+});
 
 
 /*
