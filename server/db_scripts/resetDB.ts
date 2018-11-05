@@ -1,8 +1,18 @@
 
 
 import * as sqlite from'sqlite3';
+import ToDo from "../modelsSQL/todo";
+import config from "../config";
 
-const db = new sqlite.Database('todoapp.db');
+
+//const db = new sqlite.Database('todoapp.db');
+const db = new sqlite.Database(config.db_location);
+
+
+ToDo.sync({force: true});
+
+
+
 
 /*
 import * as mongoose from 'mongoose';
