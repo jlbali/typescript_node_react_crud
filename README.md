@@ -29,3 +29,7 @@ Next steps:
 - develop a NodeJS and SQLite version, in parallel, with adaptable DAO objects.
 - develop client React using maybe React/Redux.
 
+
+
+- Develop a TodoApp, starting from server. Using Sequelize and maybe Mongoose/MongoDB.
+
