@@ -1,7 +1,8 @@
 
 
 import * as sqlite from'sqlite3';
-import ToDo from "../modelsSQL/todo";
+import ToDoModel from "../modelsSQL/todo";
+import * as ToDoService from "../services/todo.service";
 import config from "../config";
 
 
@@ -9,9 +10,19 @@ import config from "../config";
 const db = new sqlite.Database(config.db_location);
 
 
-ToDo.sync({force: true});
+ToDoModel.sync({force: true});
 
 
+async function populate(){
+  var todo = {
+    title: "Starting up...",
+    description: "Completion Data... "
+  };
+  await ToDoService.create(todo);
+}
+
+
+populate();
 
 
 /*

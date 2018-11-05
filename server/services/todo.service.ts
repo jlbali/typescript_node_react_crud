@@ -1,4 +1,4 @@
-import ToDo from "../modelsSQL/todo";
+import Model from "../modelsSQL/todo";
 
 
 /*
@@ -16,12 +16,22 @@ export async function getQueryTodos(query){
 
 
 export async function getAll(){
-    return await ToDo.findAll();
+    return await Model.findAll();
 }
 
 export async function get(id){
-    return await ToDo.findById(id);
+    return await Model.findById(id);
 }
+
+export async function create(element){
+    var newElement = Model.create(element);
+    return newElement;
+}
+
+// Falta update y delete.
+
+
+
 
 
 // Define the other services...
