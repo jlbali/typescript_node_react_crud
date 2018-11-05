@@ -12,6 +12,6 @@ const ToDo = sql.define('todo', {
     description: Sequelize.TEXT,
   });
 
-
+export default ToDo;
 
 

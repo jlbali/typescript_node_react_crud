@@ -6,7 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as sequelize from './sql';
 //const Sequelize = require('sequelize');
 
-//import * as TodoController from './controllers/todos.controller';
+import * as TodoController from './controllers/todos.controller';
 //import * as UserController from './controllers/user.controller';
 //import * as RoleController from './controllers/role.controller';
 
@@ -91,8 +91,8 @@ class App {
 
 
   private mountRoutesTodos(): void {
-    //this.express.get("/api/todos", TodoController.getTodos);
-    //this.express.post("/api/todo", TodoController.createTodo);
+    this.express.get("/api/todos", TodoController.getAll);
+    this.express.get("/api/todo/:id", TodoController.get);
     //this.express.put("/api/todo", TodoController.updateTodo);
     //this.express.delete("/api/todo/:_id", TodoController.removeTodo);
   }

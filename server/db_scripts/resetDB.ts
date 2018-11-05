@@ -1,3 +1,10 @@
+
+
+import * as sqlite from'sqlite3';
+
+const db = new sqlite.Database('todoapp.db');
+
+/*
 import * as mongoose from 'mongoose';
 import * as bluebird from 'bluebird';
 
@@ -41,3 +48,4 @@ async function resetAndPopulate(){
 
 resetAndPopulate();
 
+*/
