@@ -31,5 +31,7 @@ Next steps:
 
 
 
-- Develop a TodoApp, starting from server. Using Sequelize and maybe Mongoose/MongoDB.
+- Develop a TodoApp, starting from server. Using Sequelize and maybe Mongoose/MongoDB. No authentication, complete an entire CRUD line using server code and React/Redux.
+
+
 
