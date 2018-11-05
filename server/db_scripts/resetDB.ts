@@ -13,7 +13,8 @@ async function reset(){
   console.log("Sync ToDo....");
   var todo = {
     title: "Starting up...",
-    description: "Completion Data... "
+    description: "Completion Data... ",
+    status: 1,
   };
   await ToDoService.create(todo);
   console.log("ToDo element added...");

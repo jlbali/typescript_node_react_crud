@@ -15,6 +15,10 @@ pids
 # Compiled JS from TypeScript
 dist_server/
 
+# Compiled frontend bundle
+dist_client/
+
+
 package-lock.json
 
 # Database
