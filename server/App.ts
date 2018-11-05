@@ -3,7 +3,7 @@ import * as bluebird from 'bluebird';
 import * as mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
 
-import * as Sequelize from 'sequelize';
+import * as sequelize from './sql';
 //const Sequelize = require('sequelize');
 
 //import * as TodoController from './controllers/todos.controller';
@@ -21,7 +21,7 @@ class App {
     this.enablePublic();
     this.mountDefaultRoutes();
     //this.enableMongoose();
-    this.enableSequelize();
+    //this.enableSequelize();
     this.mountRoutesAuthentication();
     this.tokenValidationMiddleware();
     this.mountRoutesTodos();
@@ -71,9 +71,6 @@ class App {
     }
   }
 
-  private enableSequelize(): void {
-    this.sequelize = new Sequelize('sqlite:todo.db');
-  }
 
   private mountDefaultRoutes(): void {
     this.express.get('/', (req, res) => {
