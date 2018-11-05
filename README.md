@@ -33,5 +33,8 @@ Next steps:
 
 - Develop a TodoApp, starting from server. Using Sequelize and maybe Mongoose/MongoDB. No authentication, complete an entire CRUD line using server code and React/Redux.
 
+Problems:
+- query to get all Todos is not working, maybe is not pointing to the correct database definition file, or maybe instead there is some step needed to actually create the table. Maybe some population is needed??
+
 
 
