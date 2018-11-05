@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import * as mongoosePaginate from 'mongoose-paginate';
+//import * as mongoosePaginate from 'mongoose-paginate';
 
 
 var ToDoSchema = new mongoose.Schema({
@@ -9,7 +9,7 @@ var ToDoSchema = new mongoose.Schema({
     status: String
 });
 
-ToDoSchema.plugin(mongoosePaginate);
+//ToDoSchema.plugin(mongoosePaginate);
 const ToDo = mongoose.model('Todo', ToDoSchema);
 
 export default ToDo;

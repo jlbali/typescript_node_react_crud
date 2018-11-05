@@ -1,5 +1,5 @@
 import User from "../models/user.model";
-import * as AuxObj from "../auxliares/objectAux";
+import * as AuxObj from "../auxiliars/objectAux";
 import * as RoleServices from "./role.service";
 
 export async function create(user){

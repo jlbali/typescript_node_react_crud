@@ -2,7 +2,7 @@ import * as JWT from "jsonwebtoken";
 
 import * as UserService from "../services/user.service";
 import * as RoleService from "../services/role.service";
-import * as AuxObj from "../auxliares/objectAux";
+import * as AuxObj from "../auxiliars/objectAux";
 
 
 var superSecret = "TodoApp";

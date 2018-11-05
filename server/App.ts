@@ -3,19 +3,25 @@ import * as bluebird from 'bluebird';
 import * as mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
 
-import * as TodoController from './controllers/todos.controller';
-import * as UserController from './controllers/user.controller';
-import * as RoleController from './controllers/role.controller';
+import * as Sequelize from 'sequelize';
+//const Sequelize = require('sequelize');
+
+//import * as TodoController from './controllers/todos.controller';
+//import * as UserController from './controllers/user.controller';
+//import * as RoleController from './controllers/role.controller';
 
 class App {
   public express;
+  private sequelize;
+
 
   constructor(){
     this.express = express();
     this.enableCors();
     this.enablePublic();
     this.mountDefaultRoutes();
-    this.enableMongoose();
+    //this.enableMongoose();
+    this.enableSequelize();
     this.mountRoutesAuthentication();
     this.tokenValidationMiddleware();
     this.mountRoutesTodos();
@@ -65,7 +71,9 @@ class App {
     }
   }
 
-
+  private enableSequelize(): void {
+    this.sequelize = new Sequelize('sqlite:todo.db');
+  }
 
   private mountDefaultRoutes(): void {
     this.express.get('/', (req, res) => {
@@ -77,35 +85,35 @@ class App {
         message: "Hello World!"
       });
     });
-    this.express.post("/api/login", UserController.authenticate);
+    //this.express.post("/api/login", UserController.authenticate);
   }
 
   private tokenValidationMiddleware(){
-    this.express.use(UserController.validateToken);
+    //this.express.use(UserController.validateToken);
   }
 
 
   private mountRoutesTodos(): void {
-    this.express.get("/api/todos", TodoController.getTodos);
-    this.express.post("/api/todo", TodoController.createTodo);
-    this.express.put("/api/todo", TodoController.updateTodo);
-    this.express.delete("/api/todo/:_id", TodoController.removeTodo);
+    //this.express.get("/api/todos", TodoController.getTodos);
+    //this.express.post("/api/todo", TodoController.createTodo);
+    //this.express.put("/api/todo", TodoController.updateTodo);
+    //this.express.delete("/api/todo/:_id", TodoController.removeTodo);
   }
 
   private mountRoutesUsers(): void {
-    this.express.get("/api/users", UserController.getAll);
-    this.express.get("/api/user/:_id", UserController.get);
-    this.express.post("/api/user", UserController.create);
-    this.express.delete("/api/user/:_id", UserController.remove);
-    this.express.put("/api/user/:_id", UserController.update);
+    //this.express.get("/api/users", UserController.getAll);
+    //this.express.get("/api/user/:_id", UserController.get);
+    //this.express.post("/api/user", UserController.create);
+    //this.express.delete("/api/user/:_id", UserController.remove);
+    //this.express.put("/api/user/:_id", UserController.update);
   }
 
   private mountRoutesRoles(): void{
-    this.express.get("/api/roles", RoleController.getAll);
+    //this.express.get("/api/roles", RoleController.getAll);
   }
 
   private mountRoutesAuthentication(): void {
-    this.express.post("/api/authenticate", UserController.authenticate);
+    //this.express.post("/api/authenticate", UserController.authenticate);
   }
 
   public async listen(port:number) {
