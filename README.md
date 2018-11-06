@@ -24,12 +24,18 @@ https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typ
 
 Status: page 40 of book.
 
+As stated, we will follow the exercise but it is not perhaps the best way of accomplishing the desired functionality.
+Too much logic inside the ToDoPage, the form should be a different component.
+
 
 Next steps:
 
 - complete tutorial from the web page.
 - develop a NodeJS and SQLite version, in parallel, with adaptable DAO objects.
 - develop client React using maybe React/Redux.
+
+- First completion status: once the complete CRUD of Todos is done, with database
+access and all the correct styles.
 
 
 
