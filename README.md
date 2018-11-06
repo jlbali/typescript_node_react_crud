@@ -22,7 +22,7 @@ https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typ
 - scripts (SQL database creation and MongoDB scripts).
 
 
-Status: page 38 of book.
+Status: page 40 of book.
 
 
 Next steps:
@@ -49,3 +49,5 @@ FIXED!!
 FIXED. Added to webpack a mode flag set to "development".
 
 - Error with some undefined list, look at that.
+FIXED
+

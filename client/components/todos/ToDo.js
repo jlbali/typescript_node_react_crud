@@ -2,7 +2,6 @@
 import React from 'react';
 
 const ToDo = props => {
-
     return (
         <div className="todo">
             <div className="todo-header">
