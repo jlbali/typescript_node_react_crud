@@ -22,6 +22,8 @@ https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typ
 - scripts (SQL database creation and MongoDB scripts).
 
 
+Status: page 38 of book.
+
 
 Next steps:
 
@@ -43,4 +45,5 @@ SEEMS FIXED!
 - No elements are being shown when querying for the Todos, maybe they are not being saved. It does not seem they are being saved, when accessing the file.
 FIXED!!
 
-
+- Ofuscation issues that complicate debugging.... How to turn them off?
+- Error with some undefined list, look at that.

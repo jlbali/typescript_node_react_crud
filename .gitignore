@@ -16,7 +16,7 @@ pids
 dist_server/
 
 # Compiled frontend bundle
-dist_client/
+dist_client/bundle.js
 
 
 package-lock.json

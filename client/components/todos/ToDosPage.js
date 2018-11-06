@@ -6,7 +6,7 @@ const TODO_STATUSES= ['Unstarted', 'In Progress', 'Completed'];
 
 class ToDosPage extends Component {
 
-    renderTodoList(){
+    renderTodosList(){
         const {todos} = this.props;
         return TODO_STATUSES.map(status => {
             const statusTodos = todos.filter(todo => todo.status === status);
@@ -18,7 +18,7 @@ class ToDosPage extends Component {
         return (
             <div className="todos">
                 <div className="todo-lists">
-                    {this.renderTodoList()}
+                    {this.renderTodosList()}
                 </div>
             </div>
         );
