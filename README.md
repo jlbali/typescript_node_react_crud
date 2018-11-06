@@ -46,4 +46,6 @@ SEEMS FIXED!
 FIXED!!
 
 - Ofuscation issues that complicate debugging.... How to turn them off?
+FIXED. Added to webpack a mode flag set to "development".
+
 - Error with some undefined list, look at that.
