@@ -22,7 +22,10 @@ https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typ
 - scripts (SQL database creation and MongoDB scripts).
 
 
-Status: page 45 of book.
+Status: page 51 of book.
+
+p. 51-59 skipped, going straight to chapter 4 so as to combine with the database.
+
 
 As stated, we will follow the exercise but it is not perhaps the best way of accomplishing the desired functionality.
 Too much logic inside the ToDoPage, the form should be a different component.
