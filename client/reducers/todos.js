@@ -17,7 +17,7 @@ const mockToDos = [
   
 
 
-export default function todos(state=mockToDos, action){
+export default function todos(state={todos: mockToDos}, action){
     return state;
 }
 
