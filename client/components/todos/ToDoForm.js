@@ -22,7 +22,7 @@ class ToDoForm extends Component {
 
     onDescriptionChange(e){
         this.setState({
-            title: e.target.value,
+            description: e.target.value,
         });
     }
 
@@ -33,9 +33,9 @@ class ToDoForm extends Component {
         });
     }
 
-    onCreateTask(e){
+    onCreateTodo(e){
         e.preventDefault();
-        this.props.onCreateTask({
+        this.props.creator({
             title: this.state.title,
             description: this.state.description,
         });
@@ -44,17 +44,17 @@ class ToDoForm extends Component {
 
     render(){
         return (
-            <form className="todo-form" onSubmit={this.onCreateTask}>
+            <form className="todo-form" onSubmit={this.onCreateTodo.bind(this)}>
                 <input
                     className="full-width-input"
-                    onChange={this.onTitleChange}
+                    onChange={this.onTitleChange.bind(this)}
                     value= {this.state.title}
                     type="text"
                     placeholder="title"
                 />
                 <input
                     className="full-width-input"
-                    onChange={this.onTitleChange}
+                    onChange={this.onDescriptionChange.bind(this)}
                     value= {this.state.description}
                     type="text"
                     placeholder="description"

@@ -35,13 +35,13 @@ class ToDosPage extends Component {
                 <div className="todo-list-header">
                     <button
                         className="button button-defauls"
-                        onClick={this.toggleForm}
+                        onClick={this.toggleForm.bind(this)}
                     >
                       + New ToDo
                     </button>
                 </div>
                 { this.state.showCardForm && (
-                    <ToDoForm />    
+                    <ToDoForm creator={this.props.creator} />    
                 )
                 }
 
