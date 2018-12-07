@@ -55,6 +55,9 @@ access and all the correct styles.
 simultaneously in the backend and the frontend so as to be adding all the CRUD functionality (ie, update, delete, create, etc).
 
 Problems:
+
+- Query to fetch all todos seems to return nothing, check database and check everything else. See if middleware of redux-thunk is appropriately put.
+
 - query to get all Todos is not working, maybe is not pointing to the correct database definition file, or maybe instead there is some step needed to actually create the table. Maybe some population is needed?? 
 SEEMS FIXED!
 
