@@ -1,6 +1,6 @@
 
 
-import * as sqlite from'sqlite3';
+import * as sqlite from 'sqlite3';
 import ToDoModel from "../modelsSQL/todo";
 import * as ToDoService from "../services/todo.service";
 import config from "../config";

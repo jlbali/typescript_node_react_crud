@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ToDosPage from './components/todos/ToDosPage';
-import {create as createToDo} from './actions/todos';
+import {create as createToDo, edit as editToDo, fetchAll as fetchToDos} from './actions/todos';
 
 
 class App extends Component {
@@ -10,12 +10,18 @@ class App extends Component {
     this.props.dispatch(createToDo(todo));
   }
 
+
+  componentDidMount(){
+    this.props.dispatch(fetchToDos());
+  }
   
   render() {
     return (
       <div className="main­content">
-        <ToDosPage todos={this.props.todos} 
-        creator = {this.onCreateToDo.bind(this)}/>
+        <ToDosPage 
+          todos={this.props.todos} 
+          creator = {this.onCreateToDo.bind(this)}
+        />
       </div>
     );
   }

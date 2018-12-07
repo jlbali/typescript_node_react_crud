@@ -22,7 +22,11 @@ https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typ
 - scripts (SQL database creation and MongoDB scripts).
 
 
-Status: page 51 of book.
+Status: page 88 of book.
+
+Not clear where to use the redux-thunk, no import whatsoever of that in the book...
+
+
 
 p. 51-59 skipped, going straight to chapter 4 so as to combine with the database.
 
@@ -30,6 +34,9 @@ p. 51-59 skipped, going straight to chapter 4 so as to combine with the database
 As stated, we will follow the exercise but it is not perhaps the best way of accomplishing the desired functionality.
 Too much logic inside the ToDoPage, the form should be a different component.
 
+
+Design, Navbar, forms opened in other windows, etc...
+As georayos2...
 
 Next steps:
 
