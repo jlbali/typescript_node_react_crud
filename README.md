@@ -22,6 +22,12 @@ https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typ
 - scripts (SQL database creation and MongoDB scripts).
 
 
+NEXT STEPS:
+- Add list of ToDos, complete that, with Bootstrap design.
+- Do the CRUD for ToDos, complete cycle.
+- Add a login feature.
+
+
 Status: page 88 of book.
 
 Not clear where to use the redux-thunk, no import whatsoever of that in the book...
