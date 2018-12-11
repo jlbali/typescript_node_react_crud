@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import ToDosPage from './components/todos/ToDosPage';
-import {create as createToDo, edit as editToDo, fetchAll as fetchToDos} from './actions/todos';
+import ToDosPage from './ToDosPage';
+import {create as createToDo, edit as editToDo, fetchAll as fetchToDos} from '../../actions/todos';
 
 
-class App extends Component {
+class AppTodos extends Component {
   
   onCreateToDo(todo){
     this.props.dispatch(createToDo(todo));
@@ -35,6 +35,6 @@ function mapStateToProps(state){
 
 
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(AppTodos);
 
 

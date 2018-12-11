@@ -14,7 +14,7 @@ async function reset(){
   var todo = {
     title: "Starting up...",
     description: "Completion Data... ",
-    status: 1,
+    status: "Unstarted",
   };
   await ToDoService.create(todo);
   console.log("ToDo element added...");

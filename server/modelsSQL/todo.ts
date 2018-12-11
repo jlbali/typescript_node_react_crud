@@ -10,7 +10,7 @@ const ToDo = sql.define('todo', {
     },
     title: Sequelize.STRING,
     description: Sequelize.TEXT,
-    status: Sequelize.INTEGER,
+    status: Sequelize.STRING,
   });
 
 export default ToDo;
