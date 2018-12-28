@@ -93,9 +93,9 @@ class App {
   private mountRoutesTodos(): void {
     this.express.get("/api/todos", TodoController.getAll);
     this.express.get("/api/todo/:id", TodoController.get);
-    //this.express.post("/api/todo", TodoController.create);
-    //this.express.put("/api/todo/:id", TodoController.updateTodo);
-    //this.express.delete("/api/todo/:_id", TodoController.removeTodo);
+    this.express.post("/api/todo", TodoController.create);
+    this.express.put("/api/todo/:id", TodoController.update);
+    this.express.delete("/api/todo/:id", TodoController.del);
   }
 
   private mountRoutesUsers(): void {

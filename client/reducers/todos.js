@@ -1,24 +1,29 @@
 
-export default function todos(state={todos: []}, action){
+export default function todosReducer(state={items: []}, action){
 
   if (action.type == "FETCH_TODOS_SUCCEEDED"){
     return {
-      todos: action.payload.todos,
+      items: action.payload.items,
+    };
+  }
+  if (action.type == "FETCH_TODO_SUCCEEDED"){
+    return {
+      item: action.payload.item,
     };
   }
   if (action.type == "CREATE_TODO_SUCCEEDED"){
     return {
-      todos: state.todos.concat(action.payload.todo),
+      items: state.items.concat(action.payload.item),
     };
   }
   if (action.type == "EDIT_TODO"){
     const {payload} = action;
     return {
-      todos: state.todos.map(todo => {
-        if (todo.id == payload.id){
-          return Object.assign({}, todo, payload.params);
+      items: state.items.map(item => {
+        if (item.id == payload.id){
+          return Object.assign({}, item, payload.params);
         } else {
-          return todo;
+          return item;
         }
       }),
     };
