@@ -4,12 +4,10 @@ import cookie from 'react-cookies';
 
 export async function authenticate(username, password){
     var body={
-        username: username,
-        password: password
-    }
-    console.log("Mandando ", body);
+        name: username,
+        password: password,
+    };
     var response = await axios.post("/api/authenticate", body);
-    console.log("Respuesta: ", response.data);
     if (response.data.success){
         // Generamos la suscripcion del token en la sesion.
         cookie.save("token", response.data.token);

@@ -1,9 +1,11 @@
 
 
 import React, {Component} from 'react';
+import {Grid, Row, Col, Well, Button, FormGroup, ControlLabel, FormControl, Panel} from 'react-bootstrap';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import history from "../../history";
+import $ from 'jquery';
 
 import ToDosList from './ToDosList';
 import {create, fetchItem, update} from '../../actions/todos';
@@ -18,8 +20,6 @@ class ToDoForm extends Component {
             id = props.match.params.id;
         }
         this.state = {
-            title: '',
-            description: '',
             id : id,
         };
     }
@@ -28,25 +28,11 @@ class ToDoForm extends Component {
         if (this.state.id){
             var item = await fetchItem(this.state.id); // HORRIBLE.
             console.log("Item recibido: ", item);
-            this.setState({
-                title: item.title,
-                description: item.description,
-            });
+            $("#title").val(item.title);
+            $("#description").val(item.description);
         }
     }
 
-
-    onTitleChange(e){
-        this.setState({
-            title: e.target.value,
-        });
-    }
-
-    onDescriptionChange(e){
-        this.setState({
-            description: e.target.value,
-        });
-    }
 
     resetForm(){
         this.setState({
@@ -59,56 +45,51 @@ class ToDoForm extends Component {
         e.preventDefault();
         if (!this.state.id){
             await create({
-                title: this.state.title,
-                description: this.state.description,
+                title: $("#title").val(),
+                description: $("#description").val(),
             });    
         } else {
             await update(this.state.id,{
-                title: this.state.title,
-                description: this.state.description,                
+                title: $("#title").val(),
+                description: $("#description").val(),
             });
         }
         history.push("/main/todos");
     }
 
-    cancel(e){
+    onCancel(e){
         history.push("/main/todos");
     }
 
 
     render(){
         return (
-            <form className="todo-form" onSubmit={this.onSubmit.bind(this)}>
-                <input
-                    className="full-width-input"
-                    onChange={this.onTitleChange.bind(this)}
-                    value= {this.state.title}
-                    type="text"
-                    placeholder="title"
-                />
-                <input
-                    className="full-width-input"
-                    onChange={this.onDescriptionChange.bind(this)}
-                    value= {this.state.description}
-                    type="text"
-                    placeholder="description"
-                />
-                <button
-                    className="button"
-                    type="submit"
-                >
-                    Save
-                </button>
-                <button
-                    className="button"
-                    onClick={this.cancel.bind(this)}
-                >
-                    Cancel
-                </button>
+            <Well>
+                <Panel header="ToDos">
+                    <FormGroup controlId="title">
+                        <ControlLabel>Title </ControlLabel>
+                        <FormControl
+                            type="text"
+                            placeholder ="Enter Title..."
+                            id = "title"
+                            ref="title" 
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="description">
+                        <ControlLabel>Description </ControlLabel>
+                        <FormControl
+                            type="text"
+                            placeholder ="Enter Description..."
+                            id = "description"
+                            ref="description" 
+                        />
+                    </FormGroup>
+                    <Button onClick={this.onSubmit.bind(this)} bsStyle="primary">Save</Button>
+                    <Button onClick={this.onCancel.bind(this)} bsStyle="primary">Cancel</Button>
+            
+                </Panel>
+            </Well>
 
-
-
-            </form>
         )
         
 

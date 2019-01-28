@@ -14,7 +14,7 @@ export function fetchAll(){
         var response = await axios.get("/api/todos", {
             params: params
         });
-        dispatch(fetchAllSucceeded(resp.data));
+        dispatch(fetchAllSucceeded(response.data));
     });
 }
 

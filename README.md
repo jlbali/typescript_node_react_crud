@@ -84,8 +84,8 @@ USER-ROLE Model
 Problems: no foreign key established for Users... FIXED.
 - login screen and process.
 BUGS:
-    - Allows login with every kind of passowrd and user.
-    - ToDos got broken, with no token indication.
-    - Improve the layout and design of ToDoS.
+    - Allows login with every kind of passowrd and user. FIXED.
+    - ToDos got broken, with no token indication. FIXED.
+    - Improve the layout and design of ToDoS. FIXED.
 - CRUD for Users.
 

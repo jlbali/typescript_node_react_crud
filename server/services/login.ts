@@ -7,7 +7,7 @@ export async function authenticate(name, password){
         name: name,
         password: password,
     }
-    var user = await User.findOne(query);
+    var user = await User.findOne({where: query});
     if (!user){
         return {
             user: null,
