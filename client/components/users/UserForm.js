@@ -18,7 +18,6 @@ class UserForm extends Component {
         }
         this.state = {
             id : id,
-            item: null,
         };
     }
 
@@ -29,13 +28,11 @@ class UserForm extends Component {
             console.log("Item recibido: ", item);
             $("#name").val(item.name);
             $("#password").val(item.password);
-            $("#email").val(item.email);
-            $("#role").val(item.roleId); // Maybe a problem since the roles may not be loaded yet.            
-            this.setState({
-                item: item,
-            });
+            $("#email").val(item.email);            
         }
-        this.props.dispatch(fetchRoles());
+        this.props.dispatch(fetchRoles(function(){
+            $("#role").val(item.roleId); // Maybe a problem since the roles may not be loaded yet.            
+        }));
     }
 
 
@@ -46,14 +43,14 @@ class UserForm extends Component {
                 name: $("#name").val(),
                 password: $("#password").val(),
                 email: $("#email").val(),
-                roleId: $("role").val(),
+                roleId: $("#role").val(),
             });    
         } else {
             await update(this.state.id,{
                 name: $("#name").val(),
                 password: $("#password").val(),
                 email: $("#email").val(),
-                roleId: $("role").val(),
+                roleId: $("#role").val(),
             });
         }
         history.push("/main/users");

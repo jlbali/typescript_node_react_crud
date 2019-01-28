@@ -4,7 +4,7 @@ import cookie from 'react-cookies';
 
 // Fetch All.
 
-export function fetchAll(){
+export function fetchAll(next){
     return (async function(dispatch){
         var token = cookie.load("token");
         var params = {
@@ -14,6 +14,7 @@ export function fetchAll(){
             params: params
         });
         dispatch(fetchAllSucceeded(response.data));
+        next(response.data);
     });
 }
 
