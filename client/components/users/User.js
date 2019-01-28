@@ -25,7 +25,7 @@ class User extends Component {
                     <Col xs={12}>
                         <h6>{this.props.item.name} </h6>
                         <div>  
-                            HERE THE ROLE SHOULD APPEAR
+                            Rol: {this.props.item.role.title}
                         </div>
                         <Button onClick={this.onDelete.bind(this)} bsStyle='danger'>Borrar</Button>
                         <Button onClick={this.onSelectItem.bind(this)}>Modificar</Button>

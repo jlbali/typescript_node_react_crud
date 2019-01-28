@@ -4,11 +4,12 @@ import Model from "../modelsSQL/role";
 
 
 export async function getAll(){
-    return await Model.findAll();
+    return await Model.findAll({raw: true});
 }
 
 export async function get(id){
-    return await Model.findById(id);
+    var role = await Model.findByPk(id, {raw: true});
+    return role;
 }
 
 export async function create(element){

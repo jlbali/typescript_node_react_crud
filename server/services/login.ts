@@ -7,7 +7,7 @@ export async function authenticate(name, password){
         name: name,
         password: password,
     }
-    var user = await User.findOne({where: query});
+    var user = await User.findOne({where: query, raw: true});
     if (!user){
         return {
             user: null,
@@ -17,6 +17,7 @@ export async function authenticate(name, password){
     }
     // We load the Role of the user.
     var role = await RoleService.get(user.roleId);
+    //console.log("Rol: ", role);
     return {
         user: user,
         role: role,

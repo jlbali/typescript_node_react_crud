@@ -4,11 +4,11 @@ import Model from "../modelsSQL/todo";
 
 
 export async function getAll(){
-    return await Model.findAll();
+    return await Model.findAll({raw: true});
 }
 
 export async function get(id){
-    return await Model.findById(id);
+    return await Model.findByPk(id, {raw: true});
 }
 
 export async function create(element){

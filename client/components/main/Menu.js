@@ -19,21 +19,19 @@ export default class Menu extends React.Component{
 
 
 	render(){
-		var username = cookie.load("user").username;
+		var username = cookie.load("user").name;
 		var admin = cookie.load("user").role.isAdmin;
 		var navConfig = "";
-        /*
+	
         if (admin){
 			navConfig = (
 				<NavDropdown eventKey={2} title="Panel de Control" id="basic-nav-dropdown">
 					<NavItem eventKey={2.1}><Link to="/main/users">Usuarios</Link></NavItem>
-					<NavItem eventKey={2.2}><Link to="/main/sites">Sitios</Link></NavItem>
-					<NavItem eventKey={2.3}><Link to="/main/mapviews">Vistas</Link></NavItem>
-					<NavItem eventKey={2.4}><Link to="/main/profiles">Perfiles</Link></NavItem>
 				</NavDropdown>		
 			);
+			username += " (*)";
         }
-        */
+        
        
 		return (
 			<Navbar inverse fluid>
@@ -49,7 +47,6 @@ export default class Menu extends React.Component{
 					<NavDropdown eventKey={3} title="Extras" id="basic-nav-dropdown">
 						<NavItem eventKey={3.1}><Link to="/main/home">Home</Link></NavItem>
 						<NavItem eventKey={3.2}><Link to="/main/todos">ToDos</Link></NavItem>
-						<NavItem eventKey={3.3}><Link to="/main/users">Users</Link></NavItem>
 					</NavDropdown>		
 				</Nav>
 
