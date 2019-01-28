@@ -19,8 +19,8 @@ export default class Menu extends React.Component{
 
 
 	render(){
-		//var username = cookie.load("user").username;
-		//var admin = cookie.load("user").role.isAdmin;
+		var username = cookie.load("user").username;
+		var admin = cookie.load("user").role.isAdmin;
 		var navConfig = "";
         /*
         if (admin){
@@ -34,7 +34,7 @@ export default class Menu extends React.Component{
 			);
         }
         */
-       var username = "Ficticio";
+       
 		return (
 			<Navbar inverse fluid>
 				<Navbar.Header>
@@ -49,6 +49,7 @@ export default class Menu extends React.Component{
 					<NavDropdown eventKey={3} title="Extras" id="basic-nav-dropdown">
 						<NavItem eventKey={3.1}><Link to="/main/home">Home</Link></NavItem>
 						<NavItem eventKey={3.2}><Link to="/main/todos">ToDos</Link></NavItem>
+						<NavItem eventKey={3.3}><Link to="/main/users">Users</Link></NavItem>
 					</NavDropdown>		
 				</Nav>
 

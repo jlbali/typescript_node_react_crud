@@ -88,4 +88,7 @@ BUGS:
     - ToDos got broken, with no token indication. FIXED.
     - Improve the layout and design of ToDoS. FIXED.
 - CRUD for Users.
+    - Add Role to User.
+    - All regarding to role is absent in user. Cannot test all the functionality without this.
+
 

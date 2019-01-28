@@ -1,5 +1,8 @@
 import Model from "../modelsSQL/user";
 
+// TODO
+// Add role information to the users as extracted from the DB.
+
 
 export async function getAll(){
     return await Model.findAll();

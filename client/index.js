@@ -16,6 +16,10 @@ import ToDosList from './components/todos/ToDosList';
 import ToDoForm from './components/todos/ToDoForm';
 import Login from './components/login/Login';
 
+import UsersList from './components/users/UsersList';
+import UserForm from './components/users/UserForm';
+
+
 //import todos from './reducers/todos'; // Llevarlo a un combinador de reducers...
 import reducer from './reducers/index.js';
 import history from './history';
@@ -43,6 +47,11 @@ class Routes extends Component {
                     <RouteNest  exact path={'/main/todos'} component={ToDosList}/>
                     <RouteNest  exact path={'/main/todos/create'} component={ToDoForm}/>
                     <RouteNest  exact path={'/main/todos/update/:id'} component={ToDoForm}/>
+
+                    <RouteNest  exact path={'/main/users'} component={UsersList}/>
+                    <RouteNest  exact path={'/main/users/create'} component={UserForm}/>
+                    <RouteNest  exact path={'/main/users/update/:id'} component={UserForm}/>
+
                 </RouteNest>
             </Switch>
         </Router>

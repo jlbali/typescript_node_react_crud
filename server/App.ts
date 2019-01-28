@@ -8,7 +8,7 @@ import * as sequelize from './sql';
 
 import * as TodoController from './controllers/todo';
 import * as LoginController from './controllers/login';
-//import * as UserController from './controllers/user.controller';
+import * as UserController from './controllers/user';
 //import * as RoleController from './controllers/role.controller';
 
 class App {
@@ -89,11 +89,11 @@ class App {
   }
 
   private mountRoutesUsers(): void {
-    //this.express.get("/api/users", UserController.getAll);
-    //this.express.get("/api/user/:_id", UserController.get);
-    //this.express.post("/api/user", UserController.create);
-    //this.express.delete("/api/user/:_id", UserController.remove);
-    //this.express.put("/api/user/:_id", UserController.update);
+    this.express.get("/api/users", UserController.getAll);
+    this.express.get("/api/user/:_id", UserController.get);
+    this.express.post("/api/user", UserController.create);
+    this.express.put("/api/user/:_id", UserController.update);
+    this.express.delete("/api/user/:_id", UserController.del);
   }
 
   private mountRoutesRoles(): void{
