@@ -7,6 +7,7 @@ import * as sequelize from './sql';
 //const Sequelize = require('sequelize');
 
 import * as TodoController from './controllers/todo';
+import * as LoginController from './controllers/login';
 //import * as UserController from './controllers/user.controller';
 //import * as RoleController from './controllers/role.controller';
 
@@ -20,8 +21,6 @@ class App {
     this.enableCors();
     this.enablePublic();
     this.mountDefaultRoutes();
-    //this.enableMongoose();
-    //this.enableSequelize();
     this.mountRoutesAuthentication();
     this.tokenValidationMiddleware();
     this.mountRoutesTodos();
@@ -44,18 +43,6 @@ class App {
     this.express.use(bodyParser.json());
     this.express.use(express.static('dist_client'));
 
-  }
-
-  // Version con promesas.
-  private enableMongoose_OLD(): void {
-    mongoose.Promise = bluebird;
-    mongoose.connect('mongodb://127.0.0.1:27017/todoapp')
-      .then(()=> { console.log(`Succesfully Connected to the
-        Mongodb Database  at URL : mongodb://127.0.0.1:27017/todoapp`)})
-      .catch((err)=> { 
-        console.log("Error: ", err);
-        console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/todoapp`);
-      });    
   }
 
   // Version con Async, que queda algo mas elegante.
@@ -82,11 +69,14 @@ class App {
         message: "Hello World!"
       });
     });
-    //this.express.post("/api/login", UserController.authenticate);
+  }
+
+  private mountRoutesAuthentication(): void {
+    this.express.post("/api/authenticate", LoginController.authenticate);
   }
 
   private tokenValidationMiddleware(){
-    //this.express.use(UserController.validateToken);
+    this.express.use(LoginController.validateToken);
   }
 
 
@@ -110,9 +100,6 @@ class App {
     //this.express.get("/api/roles", RoleController.getAll);
   }
 
-  private mountRoutesAuthentication(): void {
-    //this.express.post("/api/authenticate", UserController.authenticate);
-  }
 
   public async listen(port:number) {
     await this.express.listen(port);

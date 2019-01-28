@@ -81,7 +81,11 @@ FIXED
 USER-ROLE Model
 
 - Models and services definitions.
-Problems: no foreign key established for Users...
-- login.
+Problems: no foreign key established for Users... FIXED.
+- login screen and process.
+BUGS:
+    - Allows login with every kind of passowrd and user.
+    - ToDos got broken, with no token indication.
+    - Improve the layout and design of ToDoS.
 - CRUD for Users.
 

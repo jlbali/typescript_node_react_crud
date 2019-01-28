@@ -12,9 +12,9 @@ export default class Menu extends React.Component{
   //};
 
   	logout(){
-//		cookie.remove("token");
-//		cookie.remove("user");
-//		history.push("/login");
+		cookie.remove("token");
+		cookie.remove("user");
+		history.push("/login");
 	}
 
 

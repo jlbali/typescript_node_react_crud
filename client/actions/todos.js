@@ -1,20 +1,19 @@
 
 import axios from 'axios';
-
-
-
-let _id = 1;
-
-export function uniqueId(){
-    return _id++;
-}
+import cookie from 'react-cookies';
 
 
 // Fetch All.
 
 export function fetchAll(){
     return (async function(dispatch){
-        var resp = await axios.get('/api/todos');
+        var token = cookie.load("token");
+        var params = {
+            token: token
+        };
+        var response = await axios.get("/api/todos", {
+            params: params
+        });
         dispatch(fetchAllSucceeded(resp.data));
     });
 }
@@ -33,13 +32,21 @@ function fetchAllSucceeded(items){
 // Fetch element
 export function fetch(id){
     return (async function(dispatch){
-        var resp = await axios.get('/api/todo/' + id);
+        var token = cookie.load("token");
+        var params = {
+            token: token
+        };
+        var resp = await axios.get('/api/todo/' + id, {params: params});
         dispatch(fetchSucceeded(resp.data));
     });
 }
 
 export async function fetchItem(id){
-    return (await axios.get('/api/todo/' + id)).data;
+    var token = cookie.load("token");
+    var params = {
+        token: token
+    };
+    return (await axios.get('/api/todo/' + id, {params: params})).data;
 }
 
 
@@ -55,34 +62,31 @@ function fetchSucceeded(item){
 }
 
 
-
-// Create element.
-/*
-export function create(element){
-    return (async function(dispatch){
-        element.status = "Unstarted";
-        var resp = await axios.post('/api/todo', element);
-        dispatch(createSucceeded(resp.data));
-        // Feo que esto este aqui.
-        history.push("/main/todos");
-    });
-}
-*/
-
 export async function create(item){
     item.status = "Unstarted";
-    var resp = await axios.post('/api/todo', {item: item});
-    //dispatch(createSucceeded(resp.data));
-    // Feo que esto este aqui.
-    //history.push("/main/todos");
+    var token = cookie.load("token");
+    var params = {
+        token: token,
+        item: item, 
+    };
+    var resp = await axios.post('/api/todo', params);
 }
 
 export async function update(id, item){
-    await axios.put('/api/todo/' + id, {item: item});
+    var token = cookie.load("token");
+    var params = {
+        token: token,
+        item: item,
+    };
+    await axios.put('/api/todo/' + id, params);
 }
 
 export async function del(id, item){
-    await axios.delete('/api/todo/' + id);
+    var token = cookie.load("token");
+    var params = {
+        token: token,
+    };
+    await axios.delete('/api/todo/' + id, {params: params});
 }
 
 
