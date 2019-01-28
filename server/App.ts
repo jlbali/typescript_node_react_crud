@@ -9,7 +9,7 @@ import * as sequelize from './sql';
 import * as TodoController from './controllers/todo';
 import * as LoginController from './controllers/login';
 import * as UserController from './controllers/user';
-//import * as RoleController from './controllers/role.controller';
+import * as RoleController from './controllers/role';
 
 class App {
   public express;
@@ -97,7 +97,7 @@ class App {
   }
 
   private mountRoutesRoles(): void{
-    //this.express.get("/api/roles", RoleController.getAll);
+    this.express.get("/api/roles", RoleController.getAll);
   }
 
 

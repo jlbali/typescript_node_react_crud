@@ -3,11 +3,13 @@ import {combineReducers} from 'redux';
 
 import todosReducer from './todos';
 import usersReducer from './users';
+import rolesReducer from './roles';
 
 export default combineReducers({
     //auth: authReducer,
     users: usersReducer,
     todos: todosReducer,
+    roles: rolesReducer,
 //    routing: routerReducer,
 });
 

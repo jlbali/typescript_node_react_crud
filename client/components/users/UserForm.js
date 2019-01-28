@@ -6,7 +6,7 @@ import history from "../../history";
 import $ from 'jquery';
 
 import {create, fetchItem, update} from '../../actions/users';
-
+import {fetchAll as fetchRoles} from '../../actions/roles';
 
 class UserForm extends Component {
 
@@ -28,7 +28,9 @@ class UserForm extends Component {
             $("#name").val(item.name);
             $("#password").val(item.password);
             $("#email").val(item.email);
+            $("#role").val(user.roleId);
         }
+        this.props.dispatch(fetchRoles());
     }
 
     async onSubmit(e){
@@ -38,12 +40,14 @@ class UserForm extends Component {
                 name: $("#name").val(),
                 password: $("#password").val(),
                 email: $("#email").val(),
+                roleId: $("role").val(),
             });    
         } else {
             await update(this.state.id,{
                 name: $("#name").val(),
                 password: $("#password").val(),
                 email: $("#email").val(),
+                roleId: $("role").val(),
             });
         }
         history.push("/main/users");
@@ -55,6 +59,12 @@ class UserForm extends Component {
 
 
     render(){
+        var rolesOptions = this.props.roles.items.map(function(role){
+            return (
+                <option value={role.id}>{role.title}</option>
+            )
+        });
+
         return (
             <Well>
                 <Panel header="User">
@@ -76,6 +86,22 @@ class UserForm extends Component {
                             ref="password" 
                         />
                     </FormGroup>
+                    <FormGroup controlId="email">
+                        <ControlLabel>E-Mail </ControlLabel>
+                        <FormControl
+                            type="text"
+                            placeholder ="Enter e-mail..."
+                            id = "email"
+                            ref="email" 
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="role">
+                        <ControlLabel>Role</ControlLabel>
+                        <FormControl componentClass="select" id="role" ref="role">
+                            {rolesOptions}
+                        </FormControl>                
+                    </FormGroup>
+
                     <Button onClick={this.onSubmit.bind(this)} bsStyle="primary">Save</Button>
                     <Button onClick={this.onCancel.bind(this)} bsStyle="primary">Cancel</Button>
             
@@ -90,4 +116,14 @@ class UserForm extends Component {
 }
 
 
-export default UserForm;
+function mapStateToProps(state){
+    return {
+      roles: state.roles,
+    }
+}
+  
+  
+export default connect(mapStateToProps)(UserForm);
+  
+
+//export default UserForm;
