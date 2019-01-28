@@ -90,10 +90,10 @@ class App {
 
   private mountRoutesUsers(): void {
     this.express.get("/api/users", UserController.getAll);
-    this.express.get("/api/user/:_id", UserController.get);
+    this.express.get("/api/user/:id", UserController.get);
     this.express.post("/api/user", UserController.create);
-    this.express.put("/api/user/:_id", UserController.update);
-    this.express.delete("/api/user/:_id", UserController.del);
+    this.express.put("/api/user/:id", UserController.update);
+    this.express.delete("/api/user/:id", UserController.del);
   }
 
   private mountRoutesRoles(): void{

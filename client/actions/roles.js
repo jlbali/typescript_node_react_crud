@@ -18,7 +18,6 @@ export function fetchAll(){
 }
 
 
-
 function fetchAllSucceeded(items){
     return {
         type: "FETCH_ROLES_SUCCEEDED",

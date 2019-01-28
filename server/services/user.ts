@@ -12,7 +12,10 @@ export async function getAll(){
 }
 
 export async function get(id){
-    return await Model.findByPk(id, {raw: true});
+    var element = await Model.findByPk(id, {raw: true});
+    console.log("Get Id: ", id);
+    console.log("Get User: ", element);
+    return element;
 }
 
 export async function create(element){
@@ -43,6 +46,7 @@ export async function del(id){
 
 // Add the role to the user.
 export async function decorateItem(user){
+    //console.log("DECORATE ITEM USER: ", user);
     var newUser = AuxObj.clone(user);
     newUser.role = await RoleServices.get(user.roleId);
     return newUser;

@@ -18,20 +18,26 @@ class UserForm extends Component {
         }
         this.state = {
             id : id,
+            item: null,
         };
     }
 
     async componentDidMount(){
         if (this.state.id){
+            //console.log("ID: ", this.state.id);
             var item = await fetchItem(this.state.id); // HORRIBLE.
             console.log("Item recibido: ", item);
             $("#name").val(item.name);
             $("#password").val(item.password);
             $("#email").val(item.email);
-            $("#role").val(user.roleId);
+            $("#role").val(item.roleId); // Maybe a problem since the roles may not be loaded yet.            
+            this.setState({
+                item: item,
+            });
         }
         this.props.dispatch(fetchRoles());
     }
+
 
     async onSubmit(e){
         e.preventDefault();
@@ -68,7 +74,7 @@ class UserForm extends Component {
         return (
             <Well>
                 <Panel header="User">
-                    <FormGroup controlId="title">
+                    <FormGroup controlId="name">
                         <ControlLabel>Username </ControlLabel>
                         <FormControl
                             type="text"

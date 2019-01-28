@@ -92,7 +92,7 @@ BUGS:
     - All regarding to role is absent in user. Cannot test all the functionality without this.
 
 BUGS:
-- When updating a user, does not load its values.
+- When updating a user, does not load its Role the first time.
 - When saving a new user, the role ID is null.
 
 

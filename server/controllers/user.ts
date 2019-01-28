@@ -4,7 +4,7 @@ import * as ModelService from "../services/user";
 // Returns Users with the Role appended.
 export async function getAll(req, res, next){
     var elements = await ModelService.decorateItems(await ModelService.getAll());
-    console.log("Controllers getAll: ", elements);
+    //console.log("Controllers getAll: ", elements);
     res.json(elements);
 }
 
