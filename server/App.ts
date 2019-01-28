@@ -6,7 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as sequelize from './sql';
 //const Sequelize = require('sequelize');
 
-import * as TodoController from './controllers/todos.controller';
+import * as TodoController from './controllers/todo';
 //import * as UserController from './controllers/user.controller';
 //import * as RoleController from './controllers/role.controller';
 

@@ -76,3 +76,12 @@ FIXED. Added to webpack a mode flag set to "development".
 - Error with some undefined list, look at that.
 FIXED
 
+
+
+USER-ROLE Model
+
+- Models and services definitions.
+Problems: no foreign key established for Users...
+- login.
+- CRUD for Users.
+

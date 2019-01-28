@@ -2,7 +2,12 @@
 
 import * as sqlite from 'sqlite3';
 import ToDoModel from "../modelsSQL/todo";
-import * as ToDoService from "../services/todo.service";
+import * as ToDoService from "../services/todo";
+import RoleModel from "../modelsSQL/role";
+import * as RoleService from "../services/role";
+import UserModel from "../modelsSQL/user";
+import * as UserService from "../services/user";
+
 import config from "../config";
 
 
@@ -10,6 +15,9 @@ async function reset(){
   const db = await new sqlite.Database(config.db_location);
   console.log("Database creation");
   await ToDoModel.sync({force: true});
+  await RoleModel.sync({force: true});
+  await UserModel.sync({force: true});
+
   console.log("Sync ToDo....");
   var todo = {
     title: "Starting up...",
@@ -18,6 +26,31 @@ async function reset(){
   };
   await ToDoService.create(todo);
   console.log("ToDo element added...");
+
+  // Creating Roles.
+  var adminRole = await RoleService.create({
+    title: "Admin",
+    isAdmin: true,
+  });
+  var userRole = await RoleService.create({
+    title: "User",
+    isAdmin: false,
+  });
+
+  // Creating two basic users.
+  await UserService.create({
+    name: "admin",
+    password: "bla",
+    email: "admin@sample.com",
+    roleId: adminRole.id,
+  });
+  await UserService.create({
+    name: "pepe",
+    password: "ble",
+    email: "pepe@sample.com",
+    roleId: userRole.id,
+  });
+
 }
 
 
