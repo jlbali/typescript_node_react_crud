@@ -41,6 +41,9 @@ export async function del(id){
     );
 }
 
+export async function reset(){
+    await Model.sync({force: true});
+}
 
 ///// Extras
 

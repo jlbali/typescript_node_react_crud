@@ -14,9 +14,11 @@ import config from "../config";
 async function reset(){
   const db = await new sqlite.Database(config.db_location);
   console.log("Database creation");
-  await ToDoModel.sync({force: true});
-  await RoleModel.sync({force: true});
-  await UserModel.sync({force: true});
+
+  ToDoService.reset();
+  UserService.reset();
+  RoleService.reset();
+  
 
   console.log("Sync ToDo....");
   var todo = {
