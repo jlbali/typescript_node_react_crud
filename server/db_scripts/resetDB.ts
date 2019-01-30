@@ -15,9 +15,9 @@ async function reset(){
   const db = await new sqlite.Database(config.db_location);
   console.log("Database creation");
 
-  ToDoService.reset();
-  UserService.reset();
-  RoleService.reset();
+  await ToDoService.reset();
+  await UserService.reset();
+  await RoleService.reset();
   
 
   console.log("Sync ToDo....");
